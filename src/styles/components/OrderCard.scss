@@ -1,0 +1,56 @@
+.orderCard {
+    border: 1px solid silver;
+    border-radius: 6px;
+    margin: 0;
+    padding: 10px 10px 0;
+    -webkit-box-shadow: 3px 3px 5px -4px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow: 3px 3px 5px -4px #ccc;  /* Firefox 3.5 - 3.6 */
+    box-shadow: 3px 3px 5px -4px #ccc; 
+}
+
+.orderCard__info {
+    padding: $s-size;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+.orderCard__user {
+    display: flex;
+}
+
+.orderCard__user i {
+    margin-right: $xs-size;
+}
+
+.__subtitle {
+    text-transform: uppercase;
+    font-size: 16px;
+    color: rgb(105, 105, 105);
+}
+
+.orderCard__subtitle {
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: rgb(105, 105, 105);
+    margin: 0px;
+}
+
+.orderCard__content {
+    font-size: 14px;
+}
+
+.orderCard__title {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1.5px;
+}
+
+.total {
+    text-align: center;
+    font-size: 18px;
+}

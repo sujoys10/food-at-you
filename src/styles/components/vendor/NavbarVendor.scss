@@ -1,0 +1,19 @@
+.navbar__links a{
+    display: none;
+}
+
+@media screen and (min-width: 700px){
+    .navbar__links a{
+        display: block;
+        text-transform: uppercase;
+        margin-right: 20px;
+        color: black;
+    }
+
+    .navbar__links {
+        display: flex;
+    }
+}
+
+
+

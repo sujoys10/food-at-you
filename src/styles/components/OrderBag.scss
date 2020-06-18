@@ -1,0 +1,52 @@
+
+
+.orderBag__subcontainer1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+}
+
+.orderBag__type {
+    font-weight: bold;
+}
+
+.orderBag__status {
+    padding: 0 6px;
+}
+
+
+.orderBag__details {
+    display: grid;
+    gap: 10px;
+}
+
+.orderBag__items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.orderBag__itemName {
+ text-transform: capitalize;   
+}
+
+.bag__title {
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: rgb(105, 105, 105);
+    margin: 0px;
+}
+
+.bag__content {
+    font-size: 14px;
+}
+
+.orderBag__deliveryTime {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: $font-medium;
+}

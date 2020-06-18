@@ -1,0 +1,33 @@
+.yourOrder {
+    border-radius: 6px;
+}
+
+.yourOrder__header {
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: $brand-color;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.yourOrder__msg {
+    margin: 12px;
+    font-size: 20px;
+}
+
+.yourOrder__orders {
+    display: grid;
+    gap: 12px;
+}
+
+@media screen and (min-width: 700px){
+    .yourOrder__orders {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

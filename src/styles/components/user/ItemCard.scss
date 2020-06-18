@@ -1,0 +1,87 @@
+
+
+.itemCard {
+    border-radius: 4px;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 3px 3px 5px -4px #ccc;
+    -webkit-box-shadow: 3px 3px 5px -4px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow: 3px 3px 5px -4px #ccc;  /* Firefox 3.5 - 3.6 */
+}
+/* 
+border: none;
+border-radius: 0;
+border-bottom-left-radius: 2px;
+border-top: 1px solid #e8e9eb;
+box-shadow: 0 4px 16px rgba(20,23,28,.25) */
+
+.itemCard__img {
+    background-color: whitesmoke;
+    width: 100%;
+    height: 140px;
+}
+
+@media screen and (min-width: 575px) {
+    .itemCard__img {
+        height: 170px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .itemCard__img {
+        height: 200px;
+    };
+}
+
+.itemCard__info {
+    padding: 2px 4px;
+    position: relative;
+}
+
+.itemCard__img * {
+    border-radius: 4px 4px 0 0;
+    height: 100%;
+    width: 100%;
+}
+
+.itemCard__info *{
+    text-align: left;
+    //margin-left: 4px;
+    line-height: 22px;
+}
+
+.itemCard__name {
+    text-transform: capitalize;
+}
+
+
+.itemCard__category {
+    display: flex;
+    align-items: center;
+}
+
+.itemCard__category * {
+    font-size: $font-small;
+    margin-right: 6px;
+}
+
+.itemCard__category p {
+    text-transform: uppercase;
+}
+
+
+
+.itemCard__price {
+    font-size: 16px;
+    position: absolute;
+    bottom: 2px;
+    right: 4px;
+}
+
+.itemCard__rating {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

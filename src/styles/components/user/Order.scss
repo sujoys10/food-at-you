@@ -1,0 +1,39 @@
+.order {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.order__title {
+    text-align: center;
+}
+
+.order__form {
+    display: grid;
+    gap: 10px;
+    width: 70%;
+}
+
+.order__form label {
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.order__form input {
+    padding: 8px;
+}
+
+input:hover {
+    border: 1px solid $brand-color;
+}
+
+.order__form button {
+    padding: 9px;
+    background-color: $brand-color;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+}

@@ -1,0 +1,62 @@
+.deliveryBag {
+    position: relative;
+}
+
+.deliveryBag__subcontainer1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.deliveryBag__type {
+    font-weight: 500;
+}
+
+.deliveryBag__status {
+    padding: 0 6px;
+}
+
+.deliveryBag__details {
+    display: grid;
+    gap: 10px;
+}
+
+.deliveryBag__items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.deliveryBag__itemName {
+ text-transform: capitalize;   
+}
+
+.bag__title {
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: rgb(105, 105, 105);
+    margin: 0px;
+}
+
+.bag__content {
+    font-size: 14px;
+}
+
+.deliveryBag__deliveryTime {
+    display: flex;
+    align-items: center;
+}
+
+.deliveryBag__deliveryTime i {
+    font-size: 30px;
+    margin-right: 8px;
+    color: rgb(105, 105, 105);
+}
+
+.deliveryBag__updateStatus {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}

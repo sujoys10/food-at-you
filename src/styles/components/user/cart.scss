@@ -1,0 +1,32 @@
+.cart__orderBar {
+    background-color: whitesmoke;
+    height: 40px;
+    padding: 25px 10px;
+    margin: 15px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.cart__placeOrder {
+    border: none;
+    color: white;
+    background-color: $brand-color;
+    border-radius: 5px;
+    padding: 7px 8px;
+}
+
+.cart__placeOrder:disabled {
+    opacity: 0.7;
+}
+
+@media screen and (min-width: 600px){
+    .cartItems {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

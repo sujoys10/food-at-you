@@ -1,0 +1,25 @@
+.auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth__image {
+    height: 140px;
+    width: 140px;
+    margin-top: 20%;
+    margin-bottom: 10%;
+}
+
+.auth__image img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+@media screen and (min-width: 768px){
+    .auth__image {
+        margin-top: 12%;
+        margin-bottom: 6%;
+    }
+}

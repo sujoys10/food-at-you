@@ -1,0 +1,29 @@
+/* .spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.spinner--page {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.spinner {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.spinner-div {
+    margin-right: 25px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

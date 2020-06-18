@@ -1,0 +1,7 @@
+@media screen and (min-width: 600px){
+    .deliveryBagList {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

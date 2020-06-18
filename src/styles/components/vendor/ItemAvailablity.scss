@@ -1,0 +1,10 @@
+.itemAvailablity {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.itemAvailablity label{
+    margin-right: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}

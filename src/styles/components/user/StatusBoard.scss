@@ -1,0 +1,48 @@
+.statusBoard {
+    margin: 10px 0;
+    height: fit-content;
+}
+
+.statuBoard__details {
+    border: 1px solid rgb(232, 232, 232);
+    border-radius: 5px;
+    display: grid;
+    gap: 8px;
+    padding: 8px 8px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "a c"
+        "b d";
+}
+
+.statusBoard__type {
+    grid-area: a;
+    justify-self: left;
+    
+}
+
+.statusBoard__items {
+    grid-area: b;
+    justify-self: left;
+    color: rgb(46, 43, 43);
+}
+
+.statusBoard__time {
+    grid-area: d;
+    justify-self: right;
+    display: flex;
+    align-items: center;
+}
+
+.statusBoard__time--icon {
+    margin-right: 6px;
+}
+
+.statusBoard__status {
+    grid-area: c;
+    justify-self: right;
+    background: whitesmoke;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 6px;
+}

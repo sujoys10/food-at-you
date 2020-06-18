@@ -1,0 +1,46 @@
+@import './base/base';
+@import './base/setting';
+@import './base/class';
+
+//general
+@import './components/Spinner.scss';
+@import './components/Auth.scss';
+@import './components/Authentication.scss';
+@import './components/AuthForm.scss';
+@import './components/Notification.scss';
+@import './components/YourOrder.scss';
+@import './components/OrderCard.scss';
+@import './components/OrderBag.scss';
+@import './components/ErrorFallback.scss';
+
+//user
+@import './components/user/Layout.scss';
+@import './components/user/Navbar.scss';
+@import './components/user/NavBottom.scss';
+@import './components/user/VendorSelection.scss';
+@import './components/user/VendorModal.scss';
+@import './components/user/StatusBoard.scss';
+@import './components/user/MealGallery.scss';
+@import './components/user/Section.scss';
+@import './components/user/ItemCard.scss';
+@import './components/user/Item.scss';
+@import './components/user/AddToCart.scss';
+@import './components/user/Profile.scss';
+@import './components/user/cart.scss';
+@import './components/user/cartItemCard.scss';
+@import './components/user/Order.scss';
+
+//vendor
+@import './components/vendor/VendorLayout.scss';
+@import './components/vendor/NavbarVendor.scss';
+@import './components/vendor/Dashboard.scss';
+@import './components/vendor/DeliveryBagList.scss';
+@import './components/vendor/DeliveryBag.scss';
+@import './components/vendor/UpdateStatus.scss';
+@import './components/vendor/Menu.scss';
+@import './components/vendor/MenuItem.scss';
+@import './components/vendor/ItemAvailablity.scss';
+@import './components/vendor/AddItem.scss';
+@import './components/vendor/EditItem.scss';
+@import './components/vendor/ItemForm.scss';
+@import './components/vendor/ImageUpload.scss';

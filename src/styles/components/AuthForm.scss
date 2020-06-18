@@ -1,0 +1,26 @@
+.authForm {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: minmax(240px, 1fr);
+}
+
+.authForm label {
+    display: none;
+}
+
+.authForm * {
+    padding: 8px;
+    box-sizing: border-box;
+    background: none;
+    border: 1px solid rgb(132, 132, 132);
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.authForm input:focus {
+    background: rgba(0,0,0,.1);
+}
+
+.authForm button:focus {
+    border: #f6f6f6;
+}

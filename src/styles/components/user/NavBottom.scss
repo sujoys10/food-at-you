@@ -1,0 +1,39 @@
+.navBottom {
+    position:fixed;
+	bottom:0;
+	left:0;
+	right:0;
+	height: 48px;
+	z-index:1000;
+	//give nav it's own compsite layer
+	will-change:transform;
+	transform: translateZ(0);	
+	
+	box-shadow: 0 -2px 2px -2px #ccc;
+	background-color:#fff;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	align-self: center;
+}
+.navBottom * {
+	text-decoration: none;
+}
+.navBottom__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: black;
+	padding: $xsss-size 0;
+}
+
+.navBottom p {
+	font-size: $font-xsmall;
+	color: rgb(132, 132, 132);
+	line-height: 12px;
+}
+
+@media screen and (min-width: 700px) {
+	.navBottom {
+		display: none;
+	}
+}

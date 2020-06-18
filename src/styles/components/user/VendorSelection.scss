@@ -1,0 +1,63 @@
+.vendorSelection {
+    background-color: $brand-color;
+    height: 38px;
+    margin: 12px 0;
+    border-radius: 5px;
+}
+
+.vendorSelection__box {
+    position: relative;
+    padding-top: 4px;
+}
+
+.vendorSelection__box p {
+    color: white;
+    text-align: center;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.vendorSelection__btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    height: 24px;
+}
+
+.css-9gakcf-option {
+    background-color: $brand-color;
+}
+
+/* .vendorSelection {
+    .css-yk16xz-control ,.css-1pahdxg-control {
+        border: none !important;
+        background-color: $brand-color !important;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+    }
+    
+    .css-1pahdxg-control:hover {
+        border: none !important;
+        border-bottom: 1px solid hsl(0, 0%, 80%) !important;
+        border-color: $brand-color !important;
+        box-shadow: none !important;
+    }
+    
+    .css-1hb7zxy-IndicatorsContainer {
+        display: none !important;
+    }
+    
+    .css-1n7v3ny-option {
+        background-color: white !important;
+        padding: 3px 12px !important;
+    }
+    
+    .css-g1d714-ValueContainer {
+        justify-content: center;
+    }
+    
+    .css-1uccc91-singleValue, .css-1wa3eu0-placeholder {
+        color: white !important;
+    } 
+}
+ */

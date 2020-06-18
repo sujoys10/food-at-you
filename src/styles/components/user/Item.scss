@@ -1,0 +1,141 @@
+
+.item__image_container {
+    height: 320px;
+    width: 320px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.item__image {
+    background-color: whitesmoke;
+    margin: 5% 0;
+    height: 80%;
+    width: 80%;
+}
+
+
+.item__image *{
+    height: 100%;
+    width: 100%;
+}
+
+.item__name {
+    text-transform: capitalize;
+    text-align: center;
+    font-size: $font-xlarge;
+    font-weight: 600;
+    letter-spacing: $xsss-size;
+    word-spacing: $xss-size;
+}
+
+.item__info {
+    display: grid;
+    gap: 10px;
+    margin-top: -15px;
+}
+
+.item__subContainer {
+    width: 256px;
+    justify-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "a c"
+        "a c";
+}
+
+.item__deliverTime {
+    grid-area: c;
+    justify-self: end;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.item__timeIcon {
+    font-size: 30px;
+}
+
+.item__price {
+    grid-area: a;
+    justify-self: start;
+    align-self: center;
+    font-size: 32px;
+}
+
+
+.item__hr {
+    width: 90%;
+    margin: auto ;
+}
+.item__description {
+    /* min-height: 78px;
+    background-color: whitesmoke; */
+    padding:0 4%;
+    padding-bottom: 12px;
+}
+
+
+.item__description--header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.item__description--header > p {
+    font-weight: bold;
+}
+
+.item__category {
+    display: flex;
+    align-items: center;
+    margin-left: 18px;
+}
+
+.item__category * {
+    font-size: $font-small;
+    margin-right: 6px;
+}
+
+.item__description--header + p {
+    text-align: left;
+    font-size: 14px;
+    padding-top: 4px;
+}
+
+.item__cart-btn {
+    position: fixed;
+    padding: 14px;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background-color: $brand-color;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 1.5px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+@media screen and (min-width: 575px) {
+    .item__image_container{
+        height: 400px;
+        width: 400px;
+    }
+
+    .item__subContainer {
+        width: 320px;
+    }
+
+    .item__info {
+        margin-top: -25px;
+    }
+}
+
+
+
