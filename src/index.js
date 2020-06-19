@@ -43,13 +43,11 @@ const wsLink = new WebSocketLink({
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
     graphQLErrors.forEach(({ message, locations, path }) => {
-      console.log(
+      /* console.log(
         `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-      )
+      ) */
       if(message.includes("Not Authenticated") || message.includes("Invalid Login") || message.includes('jwt expired')){
-        //console.log('messagen', message)
         return <Redirect to="/" />
-        //App.redirect("/")
       }
       if(message.includes('Not Authorized to update')){
         throw new Error('Not authorized to update');
@@ -63,9 +61,6 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 
 const httpLink = new HttpLink({
   uri: 'https://food-at-you.herokuapp.com/',
-  /* headers: {
-    authorization: localStorage.getItem('token') ? `Bearer ${localStorage.getItem('token')}` : ''
-  } */
 })
 
 cache.writeData({
@@ -88,8 +83,6 @@ const authLink = setContext((_, { headers }) => {
     }
   }
 });
-
-
 
 
 const link = split(
@@ -123,8 +116,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 
 serviceWorker.register();

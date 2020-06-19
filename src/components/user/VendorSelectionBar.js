@@ -14,7 +14,6 @@ export default function VendorSelectionBar(){
         <div className="vendorSelection">
                 <div className="vendorSelection__box">
                     <div>
-                        {console.log({vendor})}
                         {vendor? <p>{vendor.label}</p>:
                             <p onClick={handleClick}>choose your vendor</p>
                         }

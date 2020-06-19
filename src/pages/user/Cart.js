@@ -40,7 +40,6 @@ export default function Cart(){
         <Suspense fallback={<SpinnerLayout />}>
             <ErrorBoundary>
                 <Layout>
-                    {console.log({data, cartItems})}
                     {data.items.length === 0 ?
                         <div className="msg">No Item in Cart</div> :
                         (<div>
