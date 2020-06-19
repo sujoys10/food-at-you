@@ -17,7 +17,6 @@ export const filterItems = (items) => {
                 break;                
         }
     })
-    //console.log({breakfirst, snacks, lunch, dinner});
     return {
         breakfast,
         snacks,

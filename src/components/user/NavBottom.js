@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export default function NavBottom(){
     return(
         <div className="navBottom"> 
-            <NavLink to="/home">
+            <NavLink to="/home" activeClassName="selected">
                 <div className="navBottom__item">
                     <i className="material-icons">
                         home
@@ -12,7 +12,7 @@ export default function NavBottom(){
                     <p>Home</p>
                 </div>
             </NavLink>
-            <NavLink to="/cart">
+            <NavLink to="/cart" activeClassName="selected">
                 <div className="navBottom__item">
                     <i className="material-icons">
                         shopping_basket
@@ -21,7 +21,7 @@ export default function NavBottom(){
                 </div>
             </NavLink>
             
-            <NavLink to="/profile">
+            <NavLink to="/profile" activeClassName="selected">
                 <div className="navBottom__item">
                     <i className="material-icons">
                         person

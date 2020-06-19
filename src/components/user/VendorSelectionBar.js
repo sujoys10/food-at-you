@@ -14,6 +14,7 @@ export default function VendorSelectionBar(){
         <div className="vendorSelection">
                 <div className="vendorSelection__box">
                     <div>
+                        {console.log({vendor})}
                         {vendor? <p>{vendor.label}</p>:
                             <p onClick={handleClick}>choose your vendor</p>
                         }
@@ -25,12 +26,7 @@ export default function VendorSelectionBar(){
                         onClick={handleClick}
                     />
 
-                    <VendorModal 
-                       /*  open={modal}
-                        closeModal={setOpen}
-                        vendor={vendor}
-                        setVendor={setVendor} */
-                    />
+                    <VendorModal />
                 </div>
     
         </div>

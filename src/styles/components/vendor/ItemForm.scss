@@ -51,3 +51,8 @@
     border-radius: 4px;
     font-size: 14px;
 }
+
+.itemForm button:hover {
+    background: $brand-color;
+    color: white;
+}

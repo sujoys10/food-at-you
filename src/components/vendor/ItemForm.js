@@ -47,7 +47,7 @@ const ItemForm = ({formType, mutation, details }) => {
                     })
                 }
 
-                onSubmit = {async (values, { setSubmitting }) => {
+                onSubmit = { (values, { setSubmitting }) => {
                     setSubmitting(true);
                     const input = {
                         ...values,
@@ -164,7 +164,6 @@ const ItemForm = ({formType, mutation, details }) => {
                                 <div className="form-error">{errors.is_available}</div>
                             )}  
                         </div>
-                            
                         <button type="submit" disabled={!url || isSubmitting}>
                             {isSubmitting? 'Submitting...': 'Submit'}
                         </button>

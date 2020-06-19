@@ -10,12 +10,7 @@
     -webkit-box-shadow: 3px 3px 5px -4px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
     -moz-box-shadow: 3px 3px 5px -4px #ccc;  /* Firefox 3.5 - 3.6 */
 }
-/* 
-border: none;
-border-radius: 0;
-border-bottom-left-radius: 2px;
-border-top: 1px solid #e8e9eb;
-box-shadow: 0 4px 16px rgba(20,23,28,.25) */
+
 
 .itemCard__img {
     background-color: whitesmoke;
@@ -48,7 +43,6 @@ box-shadow: 0 4px 16px rgba(20,23,28,.25) */
 
 .itemCard__info *{
     text-align: left;
-    //margin-left: 4px;
     line-height: 22px;
 }
 
@@ -63,7 +57,7 @@ box-shadow: 0 4px 16px rgba(20,23,28,.25) */
 }
 
 .itemCard__category * {
-    font-size: $font-small;
+    font-size: 12px;
     margin-right: 6px;
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect, Fragment, useCallback } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_LATEST_BAG, GET_USER } from '../../library/query';
 import { ORDERBAG_SUBSCRIPTION } from '../../library/subscription';
@@ -23,19 +23,19 @@ export default function StatusBoard(){
         }
     )
 
-    const subscribeToDeliveryBagUpdate = subscribeToMore => {
+    const subscribeToDeliveryBagUpdate = useCallback(subscribeToMore => {
         subscribeToMore({
             document: ORDERBAG_SUBSCRIPTION,
             variables: { filter: { id: data.deliveryBag[0].id } },
         })
-    } 
+    },[data] )
     
 
     useEffect(() => {
         if(data){
             data.deliveryBag.length !==0 && subscribeToDeliveryBagUpdate(subscribeToMore);
         }
-    })
+    },[data, subscribeToDeliveryBagUpdate, subscribeToMore])
 
     /*  const subscribeToDeliveryBagUpdate = useCallback(subscribeToMore => {
             subscribeToMore({
@@ -71,10 +71,8 @@ export default function StatusBoard(){
                                 {getDeliveryTime(data.deliveryBag[0].type)}
                             </p>
                         </div>
-                    </Fragment>
-                    
-                )}
-                
+                    </Fragment>   
+                )}    
             </div>
         </ErrorBoundary> 
     )

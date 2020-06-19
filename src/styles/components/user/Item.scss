@@ -23,10 +23,10 @@
 .item__name {
     text-transform: capitalize;
     text-align: center;
-    font-size: $font-xlarge;
+    font-size: 28px;
     font-weight: 600;
-    letter-spacing: $xsss-size;
-    word-spacing: $xss-size;
+    letter-spacing: 4px;
+    word-spacing: 6px;
 }
 
 .item__info {
@@ -95,7 +95,7 @@
 }
 
 .item__category * {
-    font-size: $font-small;
+    font-size: 12px;
     margin-right: 6px;
 }
 

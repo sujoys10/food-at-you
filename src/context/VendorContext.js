@@ -7,7 +7,7 @@ const VendorState = ({ children }) => {
     const [ vendor, setVendor ] = useState('');
 
     useEffect(() => {
-        const currentVendor = localStorage.getItem('vendor');
+        const currentVendor = JSON.parse(localStorage.getItem('vendor'));
         setVendor(currentVendor);
         setModal(!currentVendor);
     }, []);
