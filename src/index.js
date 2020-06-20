@@ -43,9 +43,6 @@ const wsLink = new WebSocketLink({
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
     graphQLErrors.forEach(({ message, locations, path }) => {
-      /* console.log(
-        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-      ) */
       if(message.includes("Not Authenticated") || message.includes("Invalid Login") || message.includes('jwt expired')){
         return <Redirect to="/" />
       }
