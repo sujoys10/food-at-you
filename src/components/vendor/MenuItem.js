@@ -1,8 +1,7 @@
-import React, { memo, lazy } from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom'
 import fay from '../../images/fay.jpg';
-
-const ItemAvailablity = lazy(() => import('./ItemAvailablity'));
+import ItemAvailablity from './ItemAvailablity';
 
 const MenuItem =  memo(function MenuItem({item: {
     id,

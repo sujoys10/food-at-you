@@ -114,4 +114,4 @@ ReactDOM.render(
 );
 
 
-serviceWorker.register();
+serviceWorker.unregister();

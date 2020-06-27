@@ -1,9 +1,9 @@
 import React from 'react';
 import fay from '../../images/fay.jpg';
 
-export default function ItemCard({item: { name, category, url, price, rating }}){
+export default function ItemCard({item: { name, category, url, price, is_available, rating }}){
     return(
-        <div className="itemCard">
+        <div className="itemCard" style={{ opacity: is_available ? '1' : '0.5' }}>
             <div className="itemCard__img">
                     <img
                      alt={name}

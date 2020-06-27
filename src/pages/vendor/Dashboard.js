@@ -1,4 +1,4 @@
-import React, { lazy, useState, useEffect, Fragment, Suspense, useCallback } from 'react';
+import React, { lazy, useState, useEffect, Fragment, Suspense } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { filterOrderBags } from '../../utils/filterOrdersByType';
 import { getDefaultType } from '../../utils/date';
@@ -10,14 +10,11 @@ import VendorLayout from '../../components/vendor/VendorLayout';
 
 const DeliveryBagList = lazy(() => import('../../components/vendor/DeliveryBagList'));
 
-
-
 export default function Dashboard(){
     const [ type, setType ] = useState('');
     const [ status, setStatus ] = useState('');
     const [ orderBags, setOrderBags ] = useState([]);
     const { data : { currentUser } } = useQuery(GET_USER);
-
     const { data, loading, error, subscribeToMore } = useQuery(
         GET_ORDER_BAGS,
         {
@@ -30,24 +27,29 @@ export default function Dashboard(){
         }
     )
 
-    const subscribeToNewOrderBag = useCallback(subscribeToMore => {
-        subscribeToMore({
-            document: ORDERBAG_SUBSCRIPTION,
-            variables: { filter: { vendor: currentUser } },
-            updateQuery: ( prev, { subscriptionData }) => {
-                if (!subscriptionData.data) return prev;
-                const newBag = subscriptionData.data.subscribeToOrderBag;
-                const exists = prev.orderBags.find(({ id }) => id === newBag.id);
-                if (exists) return prev;
-                prev.orderBags = [...prev.orderBags, newBag]
-                return prev;
-            }
-        })
-    },[currentUser])
-
     useEffect(() => {
-        subscribeToNewOrderBag(subscribeToMore);
-    }, [subscribeToMore, subscribeToNewOrderBag])
+        let unsubscribe;
+        if(!unsubscribe){
+            unsubscribe = subscribeToMore({
+                document: ORDERBAG_SUBSCRIPTION,
+                variables: { filter: { vendor: currentUser } },
+                updateQuery: ( prev, { subscriptionData }) => {
+                    if (!subscriptionData.data) return prev;
+                    const newBag = subscriptionData.data.subscribeToOrderBag;
+                    const exists = prev.orderBags.find(({ id }) => id === newBag.id);
+                    if (exists) return prev;
+                    prev.orderBags = [...prev.orderBags, newBag]
+                    return prev;
+                }
+            })
+        }
+
+        return () => {
+           if(unsubscribe){
+            unsubscribe();
+           } 
+        }
+    }, [subscribeToMore, currentUser])
 
     useEffect(() => {
         const defaultType = getDefaultType();

@@ -1,8 +1,8 @@
-import React, { lazy, useState } from 'react';
+import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { TOGGLE_AVAILABILITY } from '../../library/mutation';
+import Spinner from '../Spinner';
 
-const Spinner = lazy(() => import('../Spinner'));
 
 export default function ItemAvailablity({itemId, inStock}){
     const [ available, setAvailable] = useState(inStock)
