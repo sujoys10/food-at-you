@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect, useCallback } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_ITEM } from '../../library/query';
@@ -21,16 +21,21 @@ export default function Item(){
         }
     );
 
-    const subscribeToUpadateItem = useCallback(subscribeToMore => {
-        subscribeToMore({
-            document: ITEM_SUBSCRIPTION,
-            variables: { filter: { id } }
-        })
-    }, [id])
-
     useEffect(() => {
-        subscribeToUpadateItem(subscribeToMore);
-    }, [subscribeToMore, subscribeToUpadateItem])
+        let unsubscribe;
+        if(!unsubscribe){
+            subscribeToMore({
+                document: ITEM_SUBSCRIPTION,
+                variables: { filter: { id } }
+            })
+        }
+
+        return () => {
+            if(unsubscribe){
+                unsubscribe();
+            } 
+        }
+    }, [subscribeToMore, id])
     
     if(loading) return <SpinnerLayout />
     if(error) throw new Error(error.message);

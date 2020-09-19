@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, Fragment, lazy, Suspense } from 'react';
+import React, { useEffect, useState, Fragment, lazy, Suspense } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_VENDOR_ITEMS } from '../../library/query';
 import { filterItems } from '../../utils/filterItem';
@@ -19,24 +19,29 @@ export default function MealGallery({ vendorID }){
         }}
     )
 
-    const subscribeToUpdateItems = useCallback(subscribeToMore => {
-        subscribeToMore({
-            document: ITEM_SUBSCRIPTION,
-            variables: { filter: { vendor: vendorID } },
-            updateQuery: ( prev, { subscriptionData }) => {
-                if (!subscriptionData.data) return prev;
-                const newItem = subscriptionData.data.subscribeToItem;
-                const exists = prev.items.find(({ id }) => id === newItem.id);
-                if (exists) return prev;
-                prev.items = [...prev.items, newItem]
-                return prev;
-            }
-        })
-    },[vendorID])
-
     useEffect(() => {
-        vendorID && subscribeToUpdateItems(subscribeToMore);
-    }, [vendorID, subscribeToMore, subscribeToUpdateItems])
+        let unsubscribe;
+        if(vendorID && !unsubscribe){
+            unsubscribe =  subscribeToMore({
+                document: ITEM_SUBSCRIPTION,
+                variables: { filter: { vendor: vendorID } },
+                updateQuery: ( prev, { subscriptionData }) => {
+                    if (!subscriptionData.data) return prev;
+                    const newItem = subscriptionData.data.subscribeToItem;
+                    const exists = prev.items.find(({ id }) => id === newItem.id);
+                    if (exists) return prev;
+                    prev.items = [...prev.items, newItem]
+                    return prev;
+                }
+            })
+        }
+
+        return () => {
+            if(unsubscribe){
+                unsubscribe();
+            } 
+        }
+    }, [vendorID, subscribeToMore])
 
     useEffect(() => {
         if(data){
