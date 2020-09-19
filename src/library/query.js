@@ -1,5 +1,5 @@
 import gql from 'graphql-tag';
-//import { orderBag } from './fragments';
+import { ITEM_DETAILS, ORDER_BAG_DETAILS } from './fragments';
 
 export const GET_USER = gql`
     query getUser{
@@ -29,49 +29,29 @@ export const GET_VENDOR_LIST = gql`
 export const GET_CART_ITEMS_DETAILS = gql`
     query cartItemDetails($filter: ItemFilterInput, $orderBy: ItemOrderByInput) {
         items(filter: $filter, orderBy: $orderBy){
-            id
-            name
-            category
-            type
-            url
-            description
-            price
-            is_available
+            ...itemDetails
             isTimePassed @client
-            rating
         }
     }
+    ${ITEM_DETAILS}
 `
 
 export const GET_VENDOR_ITEMS = gql`
     query vendorItems($filter: ItemFilterInput, $orderBy: ItemOrderByInput) {
         items(filter: $filter, orderBy: $orderBy){
-            id
-            name
-            category
-            type
-            url
-            description
-            price
-            is_available
+            ...itemDetails
         }
     }
+    ${ITEM_DETAILS}
 `
 export const GET_ITEM = gql`
     query getItem($filter: ItemFilterInput) {
         items(filter: $filter){
-            id
-            name
-            category
-            type
-            url
-            description
-            price
+            ...itemDetails
             isInCart @client
-            is_available
-            rating
         }
     }
+    ${ITEM_DETAILS}
 `
 
 export const GET_DETAILS_FOR_ORDER = gql`
@@ -106,63 +86,30 @@ export const GET_PROFILE_DETAILS = gql`
               order_date
               delivery_address
               order_bags(orderBy: $bagOrderBy){
-                id
-                type
-                status
-                delivery_date
-                items{
-                  item{
-                    name
-                    price
-                  }
-                  quantity
-                }
+               ...orderBagsList
               }
             }
         }
     }
+    ${ORDER_BAG_DETAILS}
 `
 
 export const GET_LATEST_BAG = gql`
      query deliveryBag($filter: OrderBagFilterInput, $orderBy: OrderBagOrderByInput, $first: Int){
         deliveryBag(filter: $filter, orderBy: $orderBy, first: $first){
-            id
-            type
-            status
-            delivery_date
-            items{
-                id
-                item{
-                    name
-                    price
-                }
-                quantity
-                delivery_date
-                status
-            }
+            ...orderBagsList
         }
-    }  
+    }
+    ${ORDER_BAG_DETAILS}  
 `
 
 export const GET_ORDER_BAGS = gql`
      query orderBags($filter: OrderBagFilterInput, $orderBy: OrderBagOrderByInput){
         orderBags(filter: $filter, orderBy: $orderBy){
-            id
-            type
-            status
-            delivery_date
-            items{
-                id
-                item{
-                    name
-                    price
-                }
-                quantity
-                delivery_date
-                status
-            }
+            ...orderBagsList
         }
-    }  
+    }
+    ${ORDER_BAG_DETAILS}  
 `
 
 export const GET_VENDOR_DETAILS = gql`
@@ -183,21 +130,12 @@ export const GET_VENDOR_DETAILS = gql`
                 total
                 delivery_address
                 order_bags(orderBy: $bagOrderBy){
-                    id
-                    type
-                    status
-                    delivery_date
-                    items{
-                        item{
-                        name
-                        price
-                        }
-                        quantity
-                    }
+                    ...orderBagsList
                 }
             }
         }
     }
+    ${ORDER_BAG_DETAILS}
 `
 
 

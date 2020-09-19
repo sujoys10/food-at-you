@@ -1,4 +1,5 @@
 import gql from 'graphql-tag';
+import { ITEM_DETAILS } from './fragments';
 
 export const USER_SIGNUP_MUTATION = gql`
     mutation createUser($input: CreateUserInput!){
@@ -52,32 +53,18 @@ export const LOGIN_VENDOR = gql`
 export const CREATE_ITEM = gql`
     mutation createItem($input: CreateItemInput!){
         createItem(input: $input){
-            id
-            name
-            category
-            type
-            url
-            description
-            price
-            is_available
-            rating
+            ...itemDetails
         }
     }
+    ${ITEM_DETAILS}
 `
 export const UPDATE_ITEM = gql`
     mutation updateItem($id: ID!,$input: UpdateItemInput!){
         updateItem(id: $id, input: $input){
-            id
-            name
-            category
-            type
-            url
-            description
-            price
-            is_available
-            rating
+            ...itemDetails
         }
     }
+    ${ITEM_DETAILS}
 `
 export const REMOVE_ITEM = gql`
     mutation removeItem($id: ID!){

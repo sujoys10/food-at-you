@@ -1,42 +1,24 @@
 import gql from "graphql-tag";
+import { ITEM_DETAILS, ORDER_BAG_DETAILS } from "./fragments";
 
 export const ITEM_SUBSCRIPTION = gql`
     subscription itemSubscription($filter: ItemSubscriptionFilterInput){
         subscribeToItem(filter: $filter){
-            id
-            name
-            category
-            type
-            url
-            description
-            price
+            ...itemDetails
             isInCart @client
-            is_available
-            rating
         }
     }
+    ${ITEM_DETAILS}
 `
 
 
 export const ORDERBAG_SUBSCRIPTION = gql`
     subscription orderBagSubscription($filter: OrderBagSubscriptionFilterInput){
         subscribeToOrderBag(filter: $filter){
-            id
-            type
-            status
-            delivery_date
-            items{
-                id
-                item{
-                    name
-                    price
-                }
-                quantity
-                delivery_date
-                status
-            }
+            ...orderBagsList
         }
     }
+    ${ORDER_BAG_DETAILS}
 `
 
 export const ORDER_SUBSCRIPTION = gql`

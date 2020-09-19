@@ -3,6 +3,7 @@ import { useMutation, useApolloClient } from '@apollo/react-hooks'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup';
 import { LOGIN_VENDOR } from '../../library/mutation';
+import GuestAuthentication from '../GuestAuthentication';
 
 
 export default function VendorLoginForm(){
@@ -25,6 +26,18 @@ export default function VendorLoginForm(){
             }
         }
     )
+
+    const handleGuestLogin = () => {
+        mutation({
+            variables: {
+              input: {
+                email: "demo@vendor.io",
+                password: "demo10",
+              },
+            },
+        })
+    }
+
     return(
         <div>
             {
@@ -67,7 +80,9 @@ export default function VendorLoginForm(){
                     </button>
                 </Form>
             </Formik>
-        </div>
-        
+
+            {/* guest loginUser */}
+            <GuestAuthentication loading={loading} login={handleGuestLogin}/>
+        </div>   
     )
 }
