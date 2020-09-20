@@ -57,7 +57,13 @@ const ItemForm = ({formType, mutation, details }) => {
                         price: parseInt(values.price),
                         vendor: currentUser
                     }
-
+                    console.log({
+                        ...values,
+                        url,
+                        type: values.type.value,
+                        category: values.category.value,
+                        price: parseInt(values.price)
+                    })
                     formType === "edit" ?
                         mutation({
                             variables: {

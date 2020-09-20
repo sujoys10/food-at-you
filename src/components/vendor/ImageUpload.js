@@ -1,59 +1,51 @@
-import React from 'react';
-import { storage } from '../../firebase/firebase';
-import placeholder from '../../images/placeholder.jpg'
+import React, { useState } from 'react';
+import { CLOUD_NAME, UPLOAD_PRESET } from '../../config/config';
+import placeholder from '../../images/placeholder.jpg';
+import { ImageSm } from '../Image';
 
-class ImageUpload extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            percentage: 0,
-        }
-    }
+const ImageUpload = ({url, setUrl}) => {
+    const [load, setload ] = useState(false)
+  
+    const onImageChange = async (e) => {
+      const file = e.target.files[0];
+      console.log(file)
+      setload(true)
+      const formData = new FormData();
 
-    onImageChange = (e) => {
-        const file = e.target.files[0];
-        const storageRef = storage.ref('images/' + file.name);
-   
-        const metadata = {
-        contentType: 'image/jpeg',
-        };
-        const task = storageRef.put(file, metadata);
-        
-        task.on('state_changed', (snapshot) =>{
-            const percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            
-            this.setState(() => ({percentage}));
-            
-        },
-        (error) => {
-            console.log(error);
-        },
-        () => {
-            task.snapshot.ref.getDownloadURL().then((url) => {
-                this.props.setUrl(url);
-            });
-        });
+      formData.append('file', file);
+      formData.append('upload_preset', UPLOAD_PRESET);
+      const options = {
+        method: 'POST',
+        body: formData,
+      };
+  
+      try {
+        const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`, options)
+        const image = await res.json();
+        setUrl(image.public_id)
+        setload(false)
+      } catch (error) {
+        throw new Error('upload failed')
+      }
     }
-    render(){
-        const { url } = this.props;
-        return(
-            <div className="imageUploader">
-                <div className="upload-btn-wrapper">
-                    <button className="btn">Upload a Image</button>
-                    <input
-                        name="file" 
-                        type="file"
-                        accept="image/*"
-                        onChange={this.onImageChange}
-                    />
-                    <progress className="imageUploader__progressbar" value={this.state.percentage} max="100"></progress>
-                </div>
-                <div className="img__container">
-                    <img src={url? url: placeholder} alt="food"/>
-                </div>
-            </div>
-        )
-    }
-}
+    return (
+      <div className="imageUploader">
+        <div className="upload-btn-wrapper">
+          <button className="btn">Upload Image</button>
+          <input
+            name="file"
+            type="file"
+            accept="image/*"
+            onChange={onImageChange}
+          />
+          <p style={{ textAlign: "center" }}>{load && "uploading..."}</p>
+        </div>
+        <div className="img__container">
+            <ImageSm url={url ? url : placeholder } />
+        </div>
+      </div>
+    );
+  }
+
 
 export default ImageUpload;

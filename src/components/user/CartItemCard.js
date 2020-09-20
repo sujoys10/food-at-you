@@ -2,8 +2,8 @@ import React, { memo } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { TOGGLE_CART } from '../../library/mutation';
 import { getDeliveryTime } from '../../utils/date';
-import placeholder from '../../images/placeholder.jpg';
 import Spinner from '../Spinner';
+import { ImageSm } from '../Image';
 
 const CartItemCard = memo(function({
      cartItem: { 
@@ -42,7 +42,7 @@ const CartItemCard = memo(function({
                     </div>
                     
                     <div className="cartItem__image">
-                        <img alt={name} src={url? url : placeholder} />
+                        <ImageSm url={url} />
                     </div>
                     
                 </div>

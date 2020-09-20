@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom'
-import fay from '../../images/fay.jpg';
+import { ImageSm} from '../Image';
 import ItemAvailablity from './ItemAvailablity';
 
 const MenuItem =  memo(function MenuItem({item: {
@@ -17,7 +17,7 @@ const MenuItem =  memo(function MenuItem({item: {
         <div className="menuItemCard box-shadow">
             <div className="menuItemCard__subContainer">
                 <div className="menuItemCard__image">
-                    <img src={url? url: fay} alt={name} />
+                    <ImageSm url={url} />
                 </div>
                 <div className="menuItemCard__info">
                     <p className="menuItemCard__info--category">{category}</p>

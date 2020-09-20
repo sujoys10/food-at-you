@@ -4,10 +4,10 @@ import { useQuery } from '@apollo/react-hooks';
 import { GET_ITEM } from '../../library/query';
 import { ITEM_SUBSCRIPTION } from '../../library/subscription';
 import { getDeliveryTime } from '../../utils/date';
-import fay  from '../../images/fay.jpg';
 
 import Layout from '../../components/user/Layout';
 import { SpinnerLayout } from '../../components/Spinner';
+import { ImageLg } from '../../components/Image';
 const AddToCart = lazy(() => import('../../components/user/AddToCart'));
 
 export default function Item(){
@@ -48,9 +48,7 @@ export default function Item(){
                             <p className="item__name">{data.items[0].name}</p>
                             <div className="item__image_container">
                                 <div className="item__image">
-                                    <img alt={data.items[0].name} 
-                                        src={data.items[0].url ? data.items[0].url : fay} 
-                                    />
+                                    <ImageLg url={data.items[0].url} />
                                 </div>    
                             </div>
             
