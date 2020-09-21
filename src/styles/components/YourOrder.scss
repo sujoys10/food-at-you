@@ -19,15 +19,14 @@
     font-size: 20px;
 }
 
-.yourOrder__orders {
-    display: grid;
-    gap: 12px;
-}
 
 @media screen and (min-width: 700px){
     .yourOrder__orders {
-        display: grid;
-        gap: 10px;
-        grid-template-columns: repeat(2, 1fr);
+       column-count: 2;
+       -moz-column-count: 2;
+       -webkit-column-count: 2;
+       column-gap: normal;
+       -moz-column-gap: normal;
+       -webkit-column-gap: normal;   
     }
 }
