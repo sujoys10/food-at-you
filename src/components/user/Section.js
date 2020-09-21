@@ -8,9 +8,6 @@ const Section = memo(function({ title, items }){
         <div className="section">
             <div className="section__header">
                 <p className="section__title">{title}</p>
-                {/* { items.length > 2 && <span className="material-icons">
-                    navigate_next
-                </span>} */}
             </div>
             { items &&
                 <div className="section__cardbox">
