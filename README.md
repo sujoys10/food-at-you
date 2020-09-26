@@ -1,4 +1,4 @@
-### Food at You
+### `Food at You`
  online canteen management app for organization
 
 link - <https://foodatyou.herokuapp.com/>
